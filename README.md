@@ -3,7 +3,7 @@
 
 An evidence-grounded group movie-night agent built for the **Qloo Agentic Hackathon** by **Asiya Ali Khan**. It retrieves a separate movie recommendation list for each participant, negotiates a shared shortlist, and exposes exactly who each choice serves.
 
-**Status:** working local application and tested Qloo adapter. Live Qloo verification and public runtime deployment are pending API-key approval. Registration and API-key request were completed October 30, 2026. **This is not yet a completed hackathon submission.**
+**Status:** working local application and tested Qloo adapter. Public hosted demo: https://commonground-asiya.asiyaaaaa8.chatgpt.site . Live Qloo verification is pending API-key approval. Registration and API-key request were completed October 30, 2026. **This is not yet a completed hackathon submission.**
 
 ![CommonGround interface](docs/interface.jpg)
 
@@ -74,6 +74,10 @@ No accounts, tracking scripts, cookies, database, or persisted taste profiles. T
 The development server binds to loopback by default. For public hosting, use the provided container behind a managed HTTPS proxy with infrastructure rate limits and quotas. The global quota is process-local, so run one process for this demo. There is no streaming availability check, content suitability filter, or age-rating verification.
 
 ## Submission
-Deadline: **October 31, 2026, 08:45 PKT**. [Event](https://qloo.devpost.com/). Required: live externally accessible app, public source with license, and description. No demo video required. Remaining blockers: API-key approval, real end-to-end Qloo run, public hosted backend, final Devpost submission. Avoid describing the fixture walkthrough as live Qloo evidence.
+Deadline: **October 31, 2026, 08:45 PKT**. [Event](https://qloo.devpost.com/). Required: live externally accessible app, public source with license, and description. No demo video required. Hosted deployment is complete. Remaining blockers: API-key approval, real end-to-end Qloo run, final Devpost submission. Avoid describing the fixture walkthrough as live Qloo evidence.
 
 MIT license. Built with Codex assistance; Asiya is the participant and maintainer. Third-party API data and film names retain their respective rights.
+
+## Hosted runtime
+
+The `hosted/` directory contains the Vinext/Cloudflare runtime and matching interface. The public fixture workflow has been exercised on the deployed app. Six JavaScript tests complement the 16 Python tests. Runtime quotas are per Worker isolate, not a global spending cap. The backend key must be configured through hosting secrets after approval.

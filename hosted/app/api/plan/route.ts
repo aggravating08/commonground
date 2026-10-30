@@ -1,0 +1,3 @@
+import { bounded,provider,reply } from '../../../lib/demo-api';
+import { plan } from '../../../lib/consensus.mjs';
+export async function POST(request:Request){const origin=request.headers.get('Origin');if(origin&&origin!==new URL(request.url).origin)return reply({error:'Cross-origin request blocked'},403);if(!request.headers.get('Content-Type')?.startsWith('application/json'))return reply({error:'Use application/json'},415);return bounded(async()=>{const raw=await request.text();if(raw.length>4096)throw Error('Invalid request size');const body=JSON.parse(raw);return plan(provider(body.mode),body.members,body.policy||'fair')})}
