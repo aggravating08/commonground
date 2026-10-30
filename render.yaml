@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: commonground
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/status
+    envVars:
+      - key: QLOO_API_KEY
+        sync: false
